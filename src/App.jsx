@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const Calculator = () => {
+  const [input, setInput] = useState('');
+  const [result, setResult] = useState('');
+
+  const handleClick = (value) => {
+    if (value === '=') {
+      try {
+        const evalResult = eval(input);
+        setResult(evalResult);
+        setInput('');
+      } catch (error) {
+        setResult('Math Error');
+        setInput('');
+      }
+    } else if (value === 'Clear') {
+      setResult('');
+      setInput('');
+    } else {
+      setInput((prev) => prev + value);
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="Calculator">
+      <h1>Simple Calculator</h1>
+      <div className="Screen">
+        <input type="text" readOnly value={input} placeholder="0" />
+        <input type="text" readOnly value={result} placeholder="Result" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="Button-Row">
+        {['7', '8', '9', '/'].map((item) => (
+          <button onClick={handleClick(item)}>{item}</button>
+        ))}
+        {['4', '5', '6', '*'].map((item) => (
+          <button onClick={handleClick(item)}>{item}</button>
+        ))}
+        {['1', '2', '3', '-'].map((item) => (
+          <button onClick={handleClick(item)}>{item}</button>
+        ))}
+        <button onClick={handleClick('0')}>0</button>
+        <button onClick={handleClick('+')}>+</button>
+        <button onClick={handleClick('=')}>=</button>
+        <button onClick={handleClick('Clear')}>Clear</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+
+  );
 }
 
-export default App
+export default Calculator;
