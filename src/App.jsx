@@ -32,18 +32,18 @@ const Calculator = () => {
       </div>
       <div className="Button-Row">
         {['7', '8', '9', '/'].map((item) => (
-          <button onClick={handleClick(item)}>{item}</button>
+          <button onClick={() => handleClick(item)}>{item}</button>
         ))}
         {['4', '5', '6', '*'].map((item) => (
-          <button onClick={handleClick(item)}>{item}</button>
+          <button onClick={() => handleClick(item)}>{item}</button>
         ))}
         {['1', '2', '3', '-'].map((item) => (
-          <button onClick={handleClick(item)}>{item}</button>
+          <button onClick={() => handleClick(item)}>{item}</button>
         ))}
-        <button onClick={handleClick('0')}>0</button>
-        <button onClick={handleClick('+')}>+</button>
-        <button onClick={handleClick('=')}>=</button>
-        <button onClick={handleClick('Clear')}>Clear</button>
+        <button onClick={() => handleClick('0')}>0</button>
+        <button onClick={() => handleClick('+')}>+</button>
+        <button onClick={() => handleClick('=')}>=</button>
+        <button onClick={() => handleClick('Clear')}>Clear</button>
       </div>
     </div>
 
