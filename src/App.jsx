@@ -52,7 +52,7 @@ const Calculator = () => {
       <button onClick={() => handleClick('Show tys image')}>Show tys image</button>
       </div>
       <div className="image">
-        {image ? (<img src={image} />) : (<div>nothing to see here ...</div>)}
+        {image ? (<img src={image} />) : (<img src={'../public/sussy.jpg'} />)}
       </div>
     </div>
 
