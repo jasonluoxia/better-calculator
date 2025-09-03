@@ -21,6 +21,8 @@ const Calculator = () => {
       setInput('');
     } else if (value === 'Show tys image') {
       setImage('../public/IMG_6681.JPG');
+    } else if (value === 'Show other image') {
+      setImage('../public/sussy.jpg');
     } else {
       setInput((prev) => prev + value);
     }
@@ -49,7 +51,8 @@ const Calculator = () => {
         <button onClick={() => handleClick('Clear')}>Clear</button>
       </div>
       <div className="darkmode">
-      <button onClick={() => handleClick('Show tys image')}>Show tys image</button>
+        {(image !== '../public/IMG_6681.JPG') ? (<button onClick={() => handleClick('Show tys image')}>Show tys image</button>) : 
+          (<button onClick={() => handleClick('Show other image')}>Show other image</button>)}
       </div>
       <div className="image">
         {image ? (<img src={image} />) : (<img src={'../public/sussy.jpg'} />)}
