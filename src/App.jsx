@@ -54,7 +54,7 @@ const Calculator = () => {
       <div className="image">
         {image ? (<img src={image} />) : (<img src={'../public/sussy.jpg'} />)}
       </div>
-    </div>
+    </div> 
 
   );
 }
