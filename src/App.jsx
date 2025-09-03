@@ -4,6 +4,7 @@ import './App.css';
 const Calculator = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
+  const [image, setImage] = useState('');
 
   const handleClick = (value) => {
     if (value === '=') {
@@ -18,6 +19,8 @@ const Calculator = () => {
     } else if (value === 'Clear') {
       setResult('');
       setInput('');
+    } else if (value === 'Show tys image') {
+      setImage('../public/IMG_6681.JPG');
     } else {
       setInput((prev) => prev + value);
     }
@@ -44,6 +47,12 @@ const Calculator = () => {
         <button onClick={() => handleClick('+')}>+</button>
         <button onClick={() => handleClick('=')}>=</button>
         <button onClick={() => handleClick('Clear')}>Clear</button>
+      </div>
+      <div className="darkmode">
+      <button onClick={() => handleClick('Show tys image')}>Show tys image</button>
+      </div>
+      <div className="image">
+        {image ? (<img src={image} />) : (<div>nothing to see here ...</div>)}
       </div>
     </div>
 
